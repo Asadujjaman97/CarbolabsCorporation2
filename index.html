@@ -35,10 +35,27 @@
     <!-- ================= NAVBAR ================= -->
     <nav class="fixed top-0 left-0 w-full bg-white shadow z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-3">
+            <!-- Left: Logo + Name -->
             <div class="flex items-center space-x-3">
-                <img src="./Image/carbos.svg" alt="logo" class="w-10 h-10 rounded-full">
-                <span class="font-semibold text-lg text-[#0077c2]">Carbolabs Corporation</span>
+                <a href="#hot-products" class="flex items-center">
+                    <img src="./Image/carbos.svg" alt="Carbolabs Logo"
+                        class="h-14 w-auto transition-transform duration-300 hover:scale-105">
+                </a>
+                <span
+                    class="font-semibold text-lg text-[#0077c2] inline-block transform transition-transform duration-300 hover:scale-110 hover:text-[#005b99]">
+                    Carbolabs Corporation
+                </span>
             </div>
+
+            <!-- Hamburger Button -->
+            <button id="menu-toggle" class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+
+            <!-- Desktop Menu -->
             <ul class="hidden md:flex space-x-6 font-medium">
                 <li><a href="#hero" class="hover:text-[#0077c2]">Home</a></li>
                 <li><a href="#about" class="hover:text-[#0077c2]">About</a></li>
@@ -47,17 +64,50 @@
                 <li><a href="#faq" class="hover:text-[#0077c2]">FAQ</a></li>
                 <li><a href="#contact" class="hover:text-[#0077c2]">Contact</a></li>
             </ul>
-            <div class="flex items-center space-x-3">
-                <button class="p-2 hover:bg-gray-100 rounded-full"><svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+
+            <!-- Right Buttons -->
+            <div class="hidden md:flex items-center space-x-3">
+                <button class="p-2 hover:bg-gray-100 rounded-full">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg></button>
-                <a href="#contact"
-                    class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">Get Quote</a>
+                    </svg>
+                </button>
+                <a href="#contact" class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">
+                    Get Quote
+                </a>
             </div>
         </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <ul class="flex flex-col items-center space-y-3 py-4 font-medium">
+                <li><a href="#hero" class="hover:text-[#0077c2]">Home</a></li>
+                <li><a href="#about" class="hover:text-[#0077c2]">About</a></li>
+                <li><a href="#about" class="hover:text-[#0077c2]">Product</a></li>
+                <li><a href="#programs" class="hover:text-[#0077c2]">Programs</a></li>
+                <li><a href="#faq" class="hover:text-[#0077c2]">FAQ</a></li>
+                <li><a href="#contact" class="hover:text-[#0077c2]">Contact</a></li>
+                <li>
+                    <a href="#contact"
+                        class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">
+                        Get Quote
+                    </a>
+                </li>
+            </ul>
+        </div>
     </nav>
+
+    <!-- JS for Toggle -->
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
 
     <!-- ================= HERO CAROUSEL ================= -->
     <section id="hero" class="relative mt-[70px]">
@@ -66,8 +116,8 @@
             <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
                 style="background-image:url('./Image/Boiler\ clean\ photo\ 1.jpg');">
                 <div class="bg-black/40 p-8 rounded-lg">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Building a Better Future</h1>
-                    <p class="mb-6 text-lg">Empowering industries with innovation and integrity.</p>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Engineered Chemistry for Thermal Efficiency</h1>
+                    <p class="mb-6 text-lg">Protecting assets. Enhancing performance.</p>
                     <a href="#contact"
                         class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get in
                         Touch</a>
@@ -78,8 +128,8 @@
                 <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
                     style="background-image:url('./Image/Big\ Cooling\ tower\ .jpg');">
                     <div class="bg-black/40 p-8 rounded-lg">
-                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Building a Better Future</h1>
-                        <p class="mb-6 text-lg">Empowering industries with innovation and integrity.</p>
+                        <h1 class="text-4xl md:text-6xl font-bold mb-4">Intelligent Cooling Water Engineering</h1>
+                        <p class="mb-6 text-lg">Smart chemistry for system reliability.</p>
                         <a href="#contact"
                             class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
                             in
@@ -91,8 +141,8 @@
                     <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
                         style="background-image:url('./Image/coal\ base\ power\ plant.jpg');">
                         <div class="bg-black/40 p-8 rounded-lg">
-                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Building a Better Future</h1>
-                            <p class="mb-6 text-lg">Empowering industries with innovation and integrity.</p>
+                            <h1 class="text-4xl md:text-6xl font-bold mb-4">Powering Performance Through Innovation</h1>
+                            <p class="mb-6 text-lg">Efficiency engineered for critical energy operations.</p>
                             <a href="#contact"
                                 class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
                                 in
@@ -104,8 +154,9 @@
                         <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
                             style="background-image:url('./Image/stp_sewage_treatment_plant_in_dhaka_2.jpg');">
                             <div class="bg-black/40 p-8 rounded-lg">
-                                <h1 class="text-4xl md:text-6xl font-bold mb-4">Building a Better Future</h1>
-                                <p class="mb-6 text-lg">Empowering industries with innovation and integrity.</p>
+                                <h1 class="text-4xl md:text-6xl font-bold mb-4">Sustainable Water Engineering Excellence
+                                </h1>
+                                <p class="mb-6 text-lg">Advanced treatment. Responsible discharge.</p>
                                 <a href="#contact"
                                     class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
                                     in
@@ -117,17 +168,15 @@
                             <div class="carousel-slide absolute inset-0 bg-cover bg-center flex items-center justify-center text-center text-white"
                                 style="background-image:url('./Image/coal\ base\ power\ plant\ 2.avif');">
                                 <div class="bg-black/40 p-8 rounded-lg">
-                                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Building a Better Future</h1>
-                                    <p class="mb-6 text-lg">Empowering industries with innovation and integrity.</p>
+                                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Your Partner in
+                                        Engineering Chemistry</h1>
+                                    <p class="mb-6 text-lg">Optimized performance for demanding industries.</p>
                                     <a href="#contact"
                                         class="bg-[#0077c2] hover:bg-[#005f99] text-white px-6 py-3 rounded-lg font-medium">Get
                                         in
                                         Touch</a>
                                 </div>
                             </div>
-
-
-
 
 
                             <!-- Arrows -->
@@ -148,62 +197,112 @@
     </section>
 
     <!-- ================= PROFESSIONAL CLUB ================= -->
-    <section class="py-20 text-center fade-up">
-        <h2 class="text-3xl font-semibold mb-3">Professional Hockey Club</h2>
-        <p class="max-w-3xl mx-auto text-gray-600">Dedicated to fostering talent and building a strong sports community
-            with integrity, performance, and teamwork.</p>
+
+    <section class="py-8 text-center fade-up">
+        <h2 class="text-3xl font-semibold mb-2 text-[#003366] transition-transform duration-300 hover:scale-110">
+            Professional Engineering Solutions
+        </h2>
+        <p class="max-w-3xl mx-auto text-gray-600 text-sm md:text-base">
+            Delivering Reliable Chemical and Water Treatment Innovations driven by Engineering precision, Quality
+            Assurance and Sustainable Performance.
+        </p>
     </section>
 
-    <!-- ================= STATS ================= -->
-    <section id="about" class="py-16 bg-gray-50 fade-up">
-        <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 text-center">
-            <div>
-                <div class="relative mx-auto w-28 h-28 mb-4">
-                    <svg class="absolute inset-0 w-full h-full">
-                        <circle cx="56" cy="56" r="50" stroke="#e5e7eb" stroke-width="8" fill="none" />
-                        <circle cx="56" cy="56" r="50" stroke="#0077c2" stroke-width="8" fill="none"
-                            stroke-dasharray="314" stroke-dashoffset="60" stroke-linecap="round" />
-                    </svg>
-                    <span
-                        class="absolute inset-0 flex items-center justify-center font-semibold text-2xl text-[#0077c2]">10+</span>
-                </div>
-                <p class="font-medium">Years Experience</p>
-            </div>
-
-            <div>
-                <div class="relative mx-auto w-28 h-28 mb-4">
-                    <svg class="absolute inset-0 w-full h-full">
-                        <circle cx="56" cy="56" r="50" stroke="#e5e7eb" stroke-width="8" fill="none" />
-                        <circle cx="56" cy="56" r="50" stroke="#0077c2" stroke-width="8" fill="none"
-                            stroke-dasharray="314" stroke-dashoffset="30" stroke-linecap="round" />
-                    </svg>
-                    <span
-                        class="absolute inset-0 flex items-center justify-center font-semibold text-2xl text-[#0077c2]">200+</span>
-                </div>
-                <p class="font-medium">Satisfied Clients</p>
-            </div>
-
-            <div>
-                <div class="relative mx-auto w-28 h-28 mb-4">
-                    <svg class="absolute inset-0 w-full h-full">
-                        <circle cx="56" cy="56" r="50" stroke="#e5e7eb" stroke-width="8" fill="none" />
-                        <circle cx="56" cy="56" r="50" stroke="#0077c2" stroke-width="8" fill="none"
-                            stroke-dasharray="314" stroke-dashoffset="90" stroke-linecap="round" />
-                    </svg>
-                    <span
-                        class="absolute inset-0 flex items-center justify-center font-semibold text-2xl text-[#0077c2]">50+</span>
-                </div>
-                <p class="font-medium">Professional Staff</p>
-            </div>
-        </div>
-    </section>
-    <section id="programs" class="bg-gray-50 py-16">
-        <div class="max-w-6xl mx-auto px-6 text-center mb-8 fade-up">
-            <h2 class="text-3xl md:text-4xl font-semibold mb-2">Program Sections</h2>
-            <p class="text-gray-600 max-w-2xl mx-auto">
-                Explore our tailored training programs for every age and skill level.
+    <!-- ================= ABOUT US ================= -->
+    <section id="about" class="py-8 bg-gray-50 fade-up">
+        <div class="max-w-5xl mx-auto text-center mb-6">
+            <h2
+                class="text-2xl md:text-3xl font-bold text-[#0077c2] mb-1 transition-transform duration-300 hover:scale-110 cursor-pointer">
+                About Us
+            </h2>
+            <p class="text-gray-600 text-sm md:text-base">
+                We are a performance-oriented engineering company providing integrated chemical and technical solutions
+                for Industrial Water Treatment, Boiler and Cooling systems. We ensuring operational efficiency,
+                equipment
+                protection and sustainable performance.
             </p>
         </div>
+
+        <div class="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-5 md:gap-8 text-center">
+            <!-- Card 1 -->
+            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300">
+                <div class="relative mx-auto w-20 h-20 mb-2">
+                    <svg class="absolute inset-0 w-full h-full">
+                        <circle cx="40" cy="40" r="35" stroke="#e5e7eb" stroke-width="6" fill="none" />
+                        <circle cx="40" cy="40" r="35" stroke="url(#grad1)" stroke-width="6" fill="none"
+                            stroke-dasharray="220" stroke-dashoffset="50" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#0077c2" />
+                                <stop offset="100%" stop-color="#00bcd4" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center font-semibold text-lg text-[#0077c2]">20+</span>
+                </div>
+                <p class="font-medium text-gray-800 text-sm md:text-base">Years Experience</p>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300">
+                <div class="relative mx-auto w-20 h-20 mb-2">
+                    <svg class="absolute inset-0 w-full h-full">
+                        <circle cx="40" cy="40" r="35" stroke="#e5e7eb" stroke-width="6" fill="none" />
+                        <circle cx="40" cy="40" r="35" stroke="url(#grad2)" stroke-width="6" fill="none"
+                            stroke-dasharray="220" stroke-dashoffset="30" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#00bcd4" />
+                                <stop offset="100%" stop-color="#0077c2" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center font-semibold text-lg text-[#0077c2]">200+</span>
+                </div>
+                <p class="font-medium text-gray-800 text-sm md:text-base">Satisfied Clients</p>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="bg-white rounded-xl shadow-sm p-5 hover:shadow-md transition-all duration-300">
+                <div class="relative mx-auto w-20 h-20 mb-2">
+                    <svg class="absolute inset-0 w-full h-full">
+                        <circle cx="40" cy="40" r="35" stroke="#e5e7eb" stroke-width="6" fill="none" />
+                        <circle cx="40" cy="40" r="35" stroke="url(#grad3)" stroke-width="6" fill="none"
+                            stroke-dasharray="220" stroke-dashoffset="70" stroke-linecap="round" />
+                        <defs>
+                            <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#0077c2" />
+                                <stop offset="100%" stop-color="#4caf50" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <span
+                        class="absolute inset-0 flex items-center justify-center font-semibold text-lg text-[#0077c2]">30+</span>
+                </div>
+                <p class="font-medium text-gray-800 text-sm md:text-base">Professional Engineer</p>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section id="programs" class="bg-gray-50 py-16">
+        <div class="max-w-6xl mx-auto px-4 text-center mb-6 fade-up">
+            <h2 class="text-2xl md:text-3xl font-bold mb-1 text-[#0077c2] 
+             transition-transform duration-300 hover:scale-110 cursor-pointer">
+                Our Core Engineering Excellence
+            </h2>
+            <div class="w-16 h-1 bg-[#0077c2] mx-auto mb-2 rounded-full transition-all duration-300 hover:w-20"></div>
+            <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto">
+                Delivering advanced industrial solutions through precision engineering, technical innovation and
+                unwavering operational integrity.
+            </p>
+        </div>
+
+
 
         <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-6">
             <!-- Junior Program -->
@@ -213,13 +312,14 @@
                     class="w-full h-64 md:h-72 object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
                 <div class="absolute top-0 left-0 p-6 text-white">
-                    <h3 class="text-2xl font-semibold mb-2">Junior Program</h3>
+                    <h3 class="text-2xl font-semibold mb-2">System Pre-Commissioning Chemical Cleaning</h3>
                     <p class="text-gray-200 text-sm mb-4 max-w-sm">
-                        Designed for 8–14 years — fundamentals, fun, and fitness.
+                        Comprehensive chemical cleaning and passivation ensuring system integrity, corrosion protection
+                        and readiness before plant startup.
                     </p>
                     <a href="#"
                         class="inline-block bg-[#0077c2] hover:bg-[#005a99] text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-                        Register Now
+                        Get Offer
                     </a>
                 </div>
             </article>
@@ -231,13 +331,14 @@
                     class="w-full h-64 md:h-72 object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
                 <div class="absolute top-0 left-0 p-6 text-white">
-                    <h3 class="text-2xl font-semibold mb-2">Teenager Program</h3>
+                    <h3 class="text-2xl font-semibold mb-2">Process Performance Monitoring</h3>
                     <p class="text-gray-200 text-sm mb-4 max-w-sm">
-                        Skill development, tactical understanding and conditioning.
+                        Data-driven monitoring and optimization of chemical dosing, water quality and heat-exchange
+                        efficiency to maintain peak system performance.
                     </p>
                     <a href="#"
                         class="inline-block bg-[#0077c2] hover:bg-[#005a99] text-white px-4 py-2 rounded-lg text-sm font-medium transition">
-                        Register Now
+                        Contact Now
                     </a>
                 </div>
             </article>
@@ -249,9 +350,10 @@
                     class="w-full h-72 md:h-96 object-cover transition-transform duration-700 group-hover:scale-110">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent"></div>
                 <div class="absolute top-0 left-0 p-8 text-white">
-                    <h3 class="text-2xl md:text-3xl font-semibold mb-2">Professional Program</h3>
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-2">Turbine Chemical Cleaning Service</h3>
                     <p class="text-gray-200 text-sm md:text-base mb-4 max-w-xl">
-                        High performance training for competitive players.
+                        Precision-engineered turbine cleaning restoring peak efficiency, reliability and lifecycle
+                        performance.
                     </p>
                     <a href="#"
                         class="inline-block bg-[#0077c2] hover:bg-[#005a99] text-white px-4 py-2 rounded-lg text-sm font-medium transition">
@@ -264,205 +366,336 @@
 
 
     <section id="new-products" class="py-16 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center mb-10 fade-up">
-                <h2 class="text-3xl md:text-4xl font-bold mb-3">Our New Products</h2>
-                <p class="text-gray-600 max-w-2xl mx-auto">
-                    Discover our latest innovations crafted with precision and quality.
+        <div class="max-w-6xl mx-auto px-6 text-center my-4 fade-up">
+            <div class="inline-block transform transition-transform duration-500 hover:scale-105">
+                <h2 class="text-2xl md:text-3xl font-bold text-gray-800 tracking-tight mb-1">
+                    Our Core Product Portfolio
+                </h2>
+                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto leading-snug">
+                    Advanced chemical solutions engineered for consistent performance, durability, and operational
+                    excellence.
                 </p>
-                <div class="border-b-2 border-gray-200 w-24 mx-auto mt-4"></div>
-            </div>
-
-            <div class="grid sm:grid-cols-2 lg:grid-cols-2 gap-6">
-
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
-                        <p class="text-gray-500 text-sm mb-2">High-quality football flags for every nation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
-                        <p class="text-gray-500 text-sm mb-2">High-quality football flags for every nation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
-                        <p class="text-gray-500 text-sm mb-2">High-quality football flags for every nation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
-                        <p class="text-gray-500 text-sm mb-2">High-quality football flags for every nation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
-                        <p class="text-gray-500 text-sm mb-2">High-quality football flags for every nation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
-                        <p class="text-gray-500 text-sm mb-2">High-quality football flags for every nation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
-                        <p class="text-gray-500 text-sm mb-2">High-quality football flags for every nation.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/7208.jpg" alt="Product 2" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">Cooling Tower Chemical</h3>
-                        <p class="text-gray-500 text-sm mb-2">Superior cooling performance for your system.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">RO Antiscalant</h3>
-                        <p class="text-gray-500 text-sm mb-2">Prevents scaling and improves RO membrane life.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
-                    <img src="./Image/2567.jpg" alt="Product 4" class="w-32 h-32 object-cover rounded-xl" />
-                    <div>
-                        <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
-                            <span class="flex items-center gap-1 text-yellow-500">
-                                ⭐ <span>5.0</span>
-                            </span>
-                            <span class="flex items-center gap-1">👁️ <span>20</span></span>
-                            <span class="flex items-center gap-1">🤍 <span>200</span></span>
-                        </div>
-                        <h3 class="font-semibold text-gray-800 mb-1">Descaling Compound</h3>
-                        <p class="text-gray-500 text-sm mb-2">Removes scale and corrosion efficiently.</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-[#e60000] font-semibold">Price - $22.00</span>
-                            <span class="text-gray-500 text-sm flex items-center gap-1">🚚 Delivery Fee : Free</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="w-16 h-0.5 bg-[#0077c2] mx-auto mt-3 rounded-full"></div>
             </div>
         </div>
+
+
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Product Card 1 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/8331.jpg" alt="Product 1" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="./order.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product Card 2 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/7208.jpg" alt="Product 2" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Product Card 3 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 6 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 7 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 8 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 9 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 10 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 11 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 12 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 13 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 14 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 15 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 16 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 17 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+            <!-- Product Card 18 -->
+            <div class="flex items-center gap-4 bg-white shadow rounded-2xl p-4 hover:scale-[1.02] transition">
+                <img src="./Image/4221.jpg" alt="Product 3" class="w-32 h-32 object-contain rounded-xl" />
+                <div>
+                    <div class="flex items-center text-sm text-gray-500 space-x-3 mb-1">
+                        <span class="flex items-center gap-1 text-yellow-500">⭐ <span>5.0</span></span>
+                        <span class="flex items-center gap-1">👁️ <span>20</span></span>
+                        <span class="flex items-center gap-1">🤍 <span>200</span></span>
+                    </div>
+                    <h3 class="font-semibold text-gray-800 mb-1">World Cup Flags Football</h3>
+                    <p class="text-gray-500 text-sm mb-3">High-quality football flags for every nation.</p>
+                    <a href="contact.html"
+                        class="inline-block bg-[#0077c2] text-white text-xs font-medium px-3 py-1.5 rounded-md hover:bg-[#005f99] transition-colors duration-300">
+                        Order Now
+                    </a>
+                </div>
+            </div>
+
+            <!-- Repeat more product cards below... -->
+        </div>
+
+
     </section>
 
 
@@ -472,85 +705,97 @@
     <!-- FAQ client -->
 
     <section class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <!-- Section Title -->
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-gray-900 mb-3">Clients Question</h2>
-                <p class="text-gray-500 max-w-2xl mx-auto">
-                    We’re here to answer all your questions regarding our products and services.
-                    Find quick answers below.
+        <div class="max-w-4xl mx-auto px-4 py-3">
+            <div class="text-center group transition-all duration-300 hover:scale-[1.01]">
+                <h2
+                    class="text-[1.75rem] md:text-[2rem] font-extrabold text-gray-800 mb-1 tracking-tight group-hover:text-[#0077c2] transition-colors duration-300">
+                    Client Inquiries
+                </h2>
+                <p
+                    class="text-gray-500 text-[0.95rem] md:text-base max-w-lg mx-auto leading-snug group-hover:text-gray-700 transition-colors duration-300">
+                    We’re here to support your technical and commercial inquiries with precision-driven insights and
+                    responsive solutions.
                 </p>
-            </div>
-
-            <!-- FAQ Container -->
-            <div class="bg-white shadow-md rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-10">
-
-                <!-- Left Image -->
-                <div class="w-full md:w-1/2">
-                    <img src="./Image/FAQ.avif" alt="Laboratory Equipment"
-                        class="w-full h-80 object-cover rounded-2xl shadow-md hover:scale-105 transition-transform duration-500 ease-in-out">
-                </div>
-
-                <!-- Right FAQ -->
-                <div class="w-full md:w-1/2 space-y-3">
-                    <div class="border-b border-gray-200">
-                        <button
-                            class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
-                            Our Equipment
-                            <span class="text-xl transition-transform duration-300">+</span>
-                        </button>
-                        <div class="accordion-content hidden pb-4 text-gray-500">
-                            We provide top-quality industrial and laboratory equipment for precise performance and
-                            reliability.
-                        </div>
-                    </div>
-
-                    <div class="border-b border-gray-200">
-                        <button
-                            class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
-                            Technical Support
-                            <span class="text-xl transition-transform duration-300">+</span>
-                        </button>
-                        <div class="accordion-content hidden pb-4 text-gray-500">
-                            Our technical team ensures prompt support and guidance for smooth operations and
-                            troubleshooting.
-                        </div>
-                    </div>
-
-                    <div class="border-b border-gray-200">
-                        <button
-                            class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
-                            Product Customization
-                            <span class="text-xl transition-transform duration-300">+</span>
-                        </button>
-                        <div class="accordion-content hidden pb-4 text-gray-500">
-                            We offer tailored solutions to meet your specific operational or laboratory requirements.
-                        </div>
-                    </div>
-
-                    <div class="border-b border-gray-200">
-                        <button
-                            class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
-                            Delivery & Logistics
-                            <span class="text-xl transition-transform duration-300">+</span>
-                        </button>
-                        <div class="accordion-content hidden pb-4 text-gray-500">
-                            We ensure timely and secure delivery of all products with reliable logistics partners.
-                        </div>
-                    </div>
-
-                    <div>
-                        <button
-                            class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
-                            Pricings
-                            <span class="text-xl transition-transform duration-300">+</span>
-                        </button>
-                        <div class="accordion-content hidden pb-4 text-gray-500">
-                            Competitive pricing structure designed to deliver top value for your investment.
-                        </div>
-                    </div>
+                <div
+                    class="w-10 h-[2px] bg-[#0077c2] mx-auto mt-2 rounded-full group-hover:w-14 transition-all duration-300">
                 </div>
             </div>
+        </div>
+
+
+
+
+
+
+        <!-- FAQ Container -->
+        <div class="bg-white shadow-md rounded-3xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-10">
+
+            <!-- Left Image -->
+            <div class="w-full md:w-1/2">
+                <img src="./Image/FAQ.avif" alt="Laboratory Equipment"
+                    class="w-full h-80 object-cover rounded-2xl shadow-md hover:scale-105 transition-transform duration-500 ease-in-out">
+            </div>
+
+            <!-- Right FAQ -->
+            <div class="w-full md:w-1/2 space-y-3">
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Our Equipment
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        We provide top-quality industrial and laboratory equipment for precise performance and
+                        reliability.
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Technical Support
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        Our technical team ensures prompt support and guidance for smooth operations and
+                        troubleshooting.
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Product Customization
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        We offer tailored solutions to meet your specific operational or laboratory requirements.
+                    </div>
+                </div>
+
+                <div class="border-b border-gray-200">
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Delivery & Logistics
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        We ensure timely and secure delivery of all products with reliable logistics partners.
+                    </div>
+                </div>
+
+                <div>
+                    <button
+                        class="w-full flex justify-between items-center py-4 text-left text-gray-800 font-semibold text-lg accordion-btn">
+                        Pricings
+                        <span class="text-xl transition-transform duration-300">+</span>
+                    </button>
+                    <div class="accordion-content hidden pb-4 text-gray-500">
+                        Competitive pricing structure designed to deliver top value for your investment.
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
 
         <!-- Accordion Script -->

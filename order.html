@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Form | CARBOLABS CORPORATION</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="./Image/CARBOLABS CORPORATION logo.png" />
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-6xl mx-auto flex justify-between items-center py-4 px-4">
+            <h1 class="text-xl font-bold text-[#0077c2] tracking-tight">CARBOLABS CORPORATION</h1>
+            <a href="index.html" class="text-sm font-medium text-gray-600 hover:text-[#0077c2] transition">← Back to
+                Home</a>
+        </div>
+    </header>
+
+    <!-- Order Form Section -->
+    <section class="max-w-3xl mx-auto bg-white shadow-md rounded-2xl mt-10 mb-10 p-8">
+        <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-center">Order Request Form</h2>
+        <p class="text-gray-500 text-center mb-6">Please fill out the details below, and our team will contact you
+            shortly to confirm your order.</p>
+        <div class="w-12 h-[2px] bg-[#0077c2] mx-auto mb-8 rounded-full"></div>
+
+        <form class="space-y-6">
+
+            <!-- Company / Personal Details -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Full Name <span
+                            class="text-red-500">*</span></label>
+                    <input type="text" placeholder="John Doe"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Company Name</label>
+                    <input type="text" placeholder="ABC Industries Ltd."
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]">
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Email Address <span
+                            class="text-red-500">*</span></label>
+                    <input type="email" placeholder="you@example.com"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]"
+                        required>
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
+                    <input type="text" placeholder="+880 1XXXXXXXXX"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]">
+                </div>
+            </div>
+
+            <!-- Product Selection -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Select Product <span
+                        class="text-red-500">*</span></label>
+                <select
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#0077c2]"
+                    required>
+                    <option value="">-- Choose a Product --</option>
+                    <option>Boiler Treatment Chemical</option>
+                    <option>Cooling Tower Chemical</option>
+                    <option>RO Antiscalant</option>
+                    <option>pH Booster</option>
+                    <option>Descaling Chemical</option>
+                    <option>Biocide</option>
+                    <option>Defoamer</option>
+                    <option>Cleaning Chemical</option>
+                </select>
+            </div>
+
+            <!-- Quantity and Delivery -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Quantity / Volume</label>
+                    <input type="text" placeholder="e.g., 25 Liters"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]">
+                </div>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Preferred Delivery Date</label>
+                    <input type="date"
+                        class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]">
+                </div>
+            </div>
+
+            <!-- Additional Notes -->
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Additional Notes</label>
+                <textarea rows="3" placeholder="Enter any special request or delivery instruction..."
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]"></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="text-center">
+                <button type="submit"
+                    class="bg-[#0077c2] hover:bg-[#005f9e] text-white font-semibold px-8 py-2 rounded-lg shadow-sm transition duration-300">
+                    Submit Order
+                </button>
+            </div>
+
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t text-center py-4 text-sm text-gray-500">
+        © 2025 CARBOLABS CORPORATION. All Rights Reserved.
+    </footer>
+
+</body>
+
+</html>
