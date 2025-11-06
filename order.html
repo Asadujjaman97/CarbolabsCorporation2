@@ -9,7 +9,9 @@
     <link rel="icon" type="image/png" href="./Image/CARBOLABS CORPORATION logo.png" />
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-800">
+
+
 
     <!-- Header -->
     <header class="bg-white shadow-sm">
@@ -21,10 +23,12 @@
     </header>
 
     <!-- Order Form Section -->
-    <section class="max-w-3xl mx-auto bg-white shadow-md rounded-2xl mt-10 mb-10 p-8">
+
+    <section class="max-w-3xl mx-auto bg-gray-50 rounded-2xl mt-10 mb-10 p-8 shadow-lg border border-gray-200">
+
         <h2 class="text-2xl md:text-3xl font-bold text-gray-800 mb-2 text-center">Order Request Form</h2>
         <p class="text-gray-500 text-center mb-6">Please fill out the details below, and our team will contact you
-            shortly to confirm your order.</p>
+            shortly.</p>
         <div class="w-12 h-[2px] bg-[#0077c2] mx-auto mb-8 rounded-full"></div>
 
         <form id="orderForm" class="space-y-6">
@@ -63,11 +67,12 @@
 
             <!-- Product -->
             <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Select Product <span
-                        class="text-red-500">*</span></label>
+                <label class="block text-sm font-medium text-gray-700 mb-1">
+                    Select Product <span class="text-red-500">*</span>
+                </label>
                 <select id="product"
                     class="w-full border border-gray-300 rounded-lg px-3 py-2 bg-white focus:outline-none focus:ring-2 focus:ring-[#0077c2]"
-                    required>
+                    required onchange="toggleOtherProduct()">
                     <option value="">-- Choose a Product --</option>
                     <option>Boiler Treatment Chemical</option>
                     <option>Cooling Tower Chemical</option>
@@ -77,14 +82,35 @@
                     <option>Biocide</option>
                     <option>Defoamer</option>
                     <option>Cleaning Chemical</option>
+                    <option value="other">Other Product (Type the Name)</option>
                 </select>
+
+                <!-- Hidden input appears if "Other Product" selected -->
+                <input type="text" id="otherProduct" name="otherProduct" placeholder="Type your product name..."
+                    class="w-full border border-gray-300 rounded-lg px-3 py-2 mt-3 bg-white focus:outline-none focus:ring-2 focus:ring-[#0077c2] hidden" />
             </div>
+
+            <script>
+                function toggleOtherProduct() {
+                    const select = document.getElementById('product');
+                    const otherInput = document.getElementById('otherProduct');
+                    if (select.value === 'other') {
+                        otherInput.classList.remove('hidden');
+                        otherInput.setAttribute('required', 'true');
+                    } else {
+                        otherInput.classList.add('hidden');
+                        otherInput.removeAttribute('required');
+                        otherInput.value = ''; // clear previous text
+                    }
+                }
+            </script>
+
 
             <!-- Quantity and Delivery -->
             <div class="grid md:grid-cols-2 gap-6">
                 <div>
                     <label class="block text-sm font-medium text-gray-700 mb-1">Quantity / Volume</label>
-                    <input id="quantity" type="text" placeholder="e.g., 25 Liters"
+                    <input id="quantity" type="text" placeholder="e.g., 25 Kg"
                         class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]">
                 </div>
                 <div>
@@ -101,13 +127,17 @@
                     class="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[#0077c2]"></textarea>
             </div>
 
-            <!-- Submit -->
-            <div class="text-center">
+            <!-- Submit Button -->
+            <div class="text-center mt-8">
                 <button type="submit"
-                    class="bg-[#0077c2] hover:bg-[#005f9e] text-white font-semibold px-8 py-2 rounded-lg shadow-sm transition duration-300">
+                    style="background-color:#0077c2; color:white; font-weight:600; padding:12px 32px; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.15); transition:all 0.3s;"
+                    onmouseover="this.style.backgroundColor='#005f9e'"
+                    onmouseout="this.style.backgroundColor='#0077c2'">
                     Submit Order
                 </button>
             </div>
+
+
         </form>
     </section>
 
@@ -129,7 +159,7 @@
             const date = document.getElementById("date").value;
             const notes = document.getElementById("notes").value;
 
-            const phoneNumber = "8801711777803"; // Replace with your WhatsApp number
+            const phoneNumber = "8801711777803"; // Your WhatsApp number
             const message = `📦 *New Order Request*
 ---------------------------------
 👤 Name: ${name}
