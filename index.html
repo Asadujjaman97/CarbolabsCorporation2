@@ -60,7 +60,48 @@
             <ul class="hidden md:flex space-x-6 font-medium">
                 <li><a href="#hero" class="hover:text-[#0077c2]">Home</a></li>
                 <li><a href="#about" class="hover:text-[#0077c2]">About</a></li>
-                <li><a href="#new-products" class="hover:text-[#0077c2]">Product</a></li>
+                <!-- ✅ Animated Products dropdown (desktop + mobile) -->
+                <li class="relative">
+                    <!-- PRODUCTS DROPDOWN (drop this into your nav where Products was) -->
+                <li class="relative" style="min-width:0;">
+                    <button id="product-btn" aria-expanded="false"
+                        class="flex items-center gap-2 hover:text-[#0077c2] transition focus:outline-none">
+                        Products
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <!-- menu — positioned absolutely so it is not clipped; z-index high so clickable -->
+                    <ul id="product-menu"
+                        class="absolute left-0 mt-2 w-64 bg-white shadow-xl rounded-lg opacity-0 scale-95 pointer-events-none transition-all duration-200 ease-out z-[9999]"
+                        style="top:100%; transform-origin: top left;">
+                        <li><a href="basic-raw-materials.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-t-lg">Basic Raw
+                                Materials</a></li>
+                        <li><a href="ro-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">RO Water Treatment
+                                Chemicals</a></li>
+                        <li><a href="boiler-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler Water Treatment
+                                Chemicals</a></li>
+                        <li><a href="cooling-tower.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower Treatment
+                                Chemicals</a></li>
+                        <li><a href="waste-water.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Waste
+                                Water Chemicals</a></li>
+                        <li><a href="desalination.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Desalination Chemicals</a>
+                        </li>
+                        <li><a href="petro-field.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Petro
+                                Field Refinery Chemicals</a></li>
+                        <li><a href="specialty.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-b-lg">Other Specialty
+                                Chemicals</a></li>
+                    </ul>
+                </li>
                 <li><a href="#programs" class="hover:text-[#0077c2]">Programs</a></li>
                 <li><a href="#faq" class="hover:text-[#0077c2]">FAQ</a></li>
                 <li><a href="#contact" class="hover:text-[#0077c2]">Contact</a></li>
@@ -1223,7 +1264,82 @@
             if (e.key === 'Enter') performSearch();
         });
     </script>
+    <script>
+        (function () {
+            const productBtn = document.getElementById('product-btn');
+            const productMenu = document.getElementById('product-menu');
 
+            if (!productBtn || !productMenu) return;
+
+            // utility to open / close
+            function openMenu() {
+                productMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                productMenu.classList.add('opacity-100', 'scale-100');
+                productBtn.setAttribute('aria-expanded', 'true');
+            }
+            function closeMenu() {
+                productMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                productMenu.classList.remove('opacity-100', 'scale-100');
+                productBtn.setAttribute('aria-expanded', 'false');
+            }
+
+            // Desktop hover: small delay so it doesn't flicker when moving mouse
+            let hoverTimer;
+            productBtn.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimer);
+                openMenu();
+            });
+            productBtn.addEventListener('mouseleave', () => {
+                hoverTimer = setTimeout(() => closeMenu(), 150);
+            });
+            productMenu.addEventListener('mouseenter', () => {
+                clearTimeout(hoverTimer);
+                openMenu();
+            });
+            productMenu.addEventListener('mouseleave', () => {
+                hoverTimer = setTimeout(() => closeMenu(), 150);
+            });
+
+            // Mobile / touch: toggle on click/touchstart
+            productBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isOpen = productMenu.classList.contains('pointer-events-none') === false;
+                isOpen ? closeMenu() : openMenu();
+            });
+            // also support touchstart to be snappy on some devices
+            productBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                const isOpen = productMenu.classList.contains('pointer-events-none') === false;
+                isOpen ? closeMenu() : openMenu();
+            }, { passive: false });
+
+            // close when clicked outside
+            document.addEventListener('click', (e) => {
+                if (!productBtn.contains(e.target) && !productMenu.contains(e.target)) {
+                    closeMenu();
+                }
+            });
+
+            // close on Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') closeMenu();
+            });
+
+            // Ensure the menu is not clipped by parent overflow; if parent has overflow hidden,
+            // fallback: move menu to body (uncomment the block below if you still face clipping).
+            /*
+            if (productMenu.getBoundingClientRect().bottom > window.innerHeight ||
+                productMenu.getBoundingClientRect().right > window.innerWidth) {
+              document.body.appendChild(productMenu);
+              const rect = productBtn.getBoundingClientRect();
+              productMenu.style.position = 'absolute';
+              productMenu.style.left = rect.left + 'px';
+              productMenu.style.top = rect.bottom + 'px';
+              productMenu.style.zIndex = '9999';
+            }
+            */
+        })();
+    </script>
 </body>
 
 </html>
