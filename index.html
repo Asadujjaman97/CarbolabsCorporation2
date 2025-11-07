@@ -68,13 +68,25 @@
 
             <!-- Right Buttons -->
             <div class="hidden md:flex items-center space-x-3">
-                <button class="p-2 hover:bg-gray-100 rounded-full">
+                <!-- Search Button -->
+                <button id="search-toggle" class="p-2 hover:bg-gray-100 rounded-full">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
                         stroke="currentColor" class="w-5 h-5">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M21 21l-4.35-4.35m1.85-5.15a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </button>
+
+                <!-- Hidden Search Box -->
+                <div id="search-box"
+                    class="hidden absolute right-6 top-16 bg-white border border-gray-300 shadow-lg rounded-lg p-3 flex items-center space-x-2">
+                    <input id="search-input" type="text" placeholder="Type to search..."
+                        class="border rounded-lg p-2 w-64 focus:ring-2 focus:ring-blue-400 focus:outline-none">
+                    <button id="search-btn" class="bg-blue-600 text-white px-3 py-2 rounded-lg hover:bg-blue-700">
+                        Go
+                    </button>
+                </div>
+
                 <a href="./common-form.html"
                     class="bg-[#0077c2] hover:bg-[#005f99] text-white px-4 py-2 rounded-lg font-medium">
                     Get Quote
@@ -1082,6 +1094,42 @@
         onScroll();
     </script>
 
+    <script>
+        const toggle = document.getElementById('search-toggle');
+        const box = document.getElementById('search-box');
+        const input = document.getElementById('search-input');
+        const goBtn = document.getElementById('search-btn');
+
+        // Show/hide search box
+        toggle.addEventListener('click', () => {
+            box.classList.toggle('hidden');
+            input.focus();
+        });
+
+        // Function to perform the search
+        function performSearch() {
+            const query = input.value.trim().toLowerCase();
+            if (!query) return;
+
+            // Try to find a section with matching ID or heading text
+            const section = [...document.querySelectorAll('section, div, h1, h2, h3')]
+                .find(el => (el.id && el.id.toLowerCase().includes(query)) ||
+                    (el.textContent.toLowerCase().includes(query)));
+
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                box.classList.add('hidden');
+                input.value = '';
+            } else {
+                alert('No matching section found.');
+            }
+        }
+
+        goBtn.addEventListener('click', performSearch);
+        input.addEventListener('keypress', e => {
+            if (e.key === 'Enter') performSearch();
+        });
+    </script>
 
 </body>
 
