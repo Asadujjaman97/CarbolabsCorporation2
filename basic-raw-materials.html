@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Basic Raw Materials | Carbolabs Corporation</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <h1 class="text-xl font-bold text-[#0077c2]">Carbolabs Corporation</h1>
+            <nav>
+                <a href="index.html" class="text-gray-700 hover:text-[#0077c2] mx-3">Home</a>
+                <a href="products.html" class="text-gray-700 hover:text-[#0077c2] mx-3 font-semibold">Products</a>
+                <a href="contact.html" class="text-gray-700 hover:text-[#0077c2] mx-3">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-[#0077c2] text-white py-12 text-center">
+        <h2 class="text-3xl font-bold">Basic Raw Materials</h2>
+        <p class="mt-2 text-white/90">High-purity industrial chemicals used in water treatment, formulation, and
+            manufacturing processes.</p>
+    </section>
+
+    <!-- Product Grid -->
+    <section class="container mx-auto px-4 py-12">
+        <div class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+            <!-- Example Product Card -->
+            <div
+                class="group bg-white rounded-xl overflow-hidden shadow-md hover:shadow-2xl transform transition-all duration-300 hover:-translate-y-2 hover:scale-[1.03] p-4">
+                <!-- Image Section -->
+                <div class="h-48 w-full flex items-center justify-center bg-gray-50 rounded-lg overflow-hidden">
+                    <img src="./Image/soda ash.jpg" alt="Product"
+                        class="max-h-44 w-auto object-contain transition-transform duration-500 ease-in-out group-hover:scale-110">
+                </div>
+
+                <!-- Text Section -->
+                <h3
+                    class="text-lg font-semibold mt-3 text-gray-800 transition-colors duration-300 group-hover:text-[#0077c2]">
+                    Product Name
+                </h3>
+                <p class="text-gray-600 text-sm mb-3 transition-colors duration-300 group-hover:text-gray-700">
+                    Short description
+                </p>
+
+                <!-- Button with advanced hover -->
+                <a href="request-data-sheet.html?product=Sodium%20Hydroxide" class="inline-block bg-[#0077c2] text-white px-4 py-2 rounded-lg mt-2 transition-all duration-300
+            hover:bg-[#005f99] hover:shadow-lg hover:-translate-y-[2px]">
+                    View Data Sheet
+                </a>
+            </div>
+
+
+
+
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
+                onclick="openForm('pdfs/sodium-tripolyphosphate.pdf')">
+                <img src="images/sodium-tripolyphosphate.jpg" alt="Sodium Tripolyphosphate"
+                    class="rounded-t-xl w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Sodium Tripolyphosphate</h3>
+                    <p class="text-sm text-gray-600 mt-1">Used as dispersing agent and water softener for industrial
+                        use.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
+                onclick="openForm('pdfs/sodium-sulfite.pdf')">
+                <img src="images/sodium-sulfite.jpg" alt="Sodium Sulfite" class="rounded-t-xl w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Sodium Sulfite</h3>
+                    <p class="text-sm text-gray-600 mt-1">Oxygen scavenger for boiler and process water systems.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-xl shadow hover:shadow-lg transition transform hover:-translate-y-1 cursor-pointer"
+                onclick="openForm('pdfs/polymer-antifoam.pdf')">
+                <img src="images/polymer-antifoam.jpg" alt="Polymer Antifoam"
+                    class="rounded-t-xl w-full h-40 object-cover">
+                <div class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-800">Polymer Antifoam</h3>
+                    <p class="text-sm text-gray-600 mt-1">Non-silicone defoamer for chemical processing and effluent
+                        treatment.</p>
+                </div>
+            </div>
+
+            <!-- Add more product cards below (copy & modify above blocks for ~30 items) -->
+
+        </div>
+    </section>
+
+    <!-- Form Modal -->
+    <div id="formModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-lg w-11/12 max-w-md p-6 relative">
+            <h3 class="text-xl font-semibold mb-4 text-[#0077c2]">Request Product Data Sheet</h3>
+            <form id="infoForm" class="space-y-4">
+                <input type="text" id="name" placeholder="Full Name" required
+                    class="w-full border rounded-md p-2 focus:ring-2 focus:ring-[#0077c2] outline-none">
+                <input type="email" id="email" placeholder="Email Address" required
+                    class="w-full border rounded-md p-2 focus:ring-2 focus:ring-[#0077c2] outline-none">
+                <input type="text" id="company" placeholder="Company / Organization" required
+                    class="w-full border rounded-md p-2 focus:ring-2 focus:ring-[#0077c2] outline-none">
+                <button type="submit"
+                    class="w-full bg-[#0077c2] text-white py-2 rounded-md hover:bg-[#005f99] transition">Submit</button>
+            </form>
+            <button onclick="closeForm()"
+                class="absolute top-2 right-3 text-gray-400 hover:text-gray-600 text-2xl">&times;</button>
+        </div>
+    </div>
+
+    <script>
+        let selectedPDF = '';
+
+        function openForm(pdfPath) {
+            selectedPDF = pdfPath;
+            document.getElementById('formModal').classList.remove('hidden');
+        }
+
+        function closeForm() {
+            document.getElementById('formModal').classList.add('hidden');
+        }
+
+        document.getElementById('infoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const company = document.getElementById('company').value.trim();
+
+            if (name && email && company) {
+                closeForm();
+                window.open(selectedPDF, '_blank');
+            } else {
+                alert('Please fill out all fields.');
+            }
+        });
+    </script>
+
+</body>
+
+</html>
