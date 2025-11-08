@@ -1,0 +1,7 @@
+@media (max-width: 768px) {
+    #product-menu {
+        position: static !important;
+        box-shadow: none !important;
+        width: 100% !important;
+    }
+}

@@ -83,23 +83,28 @@
                                 Raw
                                 Materials</a></li>
                         <li><a href="ro-water-treatment.html"
-                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">RO Water Treatment
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">RO Water
+                                Treatment
                                 Chemicals</a></li>
                         <li><a href="boiler-water-treatment.html"
-                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler Water Treatment
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler
+                                Water Treatment
                                 Chemicals</a></li>
                         <li><a href="cooling-tower.html"
-                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower Treatment
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower
+                                Treatment
                                 Chemicals</a></li>
                         <li><a href="waste-water.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Waste
                                 Water Chemicals</a></li>
                         <li><a href="desalination.html"
-                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Desalination Chemicals</a>
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Desalination
+                                Chemicals</a>
                         </li>
                         <li><a href="petro-field.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Petro
                                 Field Refinery Chemicals</a></li>
                         <li><a href="specialty.html"
-                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-b-lg">Other Specialty
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white rounded-b-lg">Other
+                                Specialty
                                 Chemicals</a></li>
                     </ul>
                 </li>
@@ -141,7 +146,43 @@
             <ul class="flex flex-col items-center space-y-3 py-4 font-medium">
                 <li><a href="#hero" class="hover:text-[#0077c2]">Home</a></li>
                 <li><a href="#about" class="hover:text-[#0077c2]">About</a></li>
-                <li><a href="#new-products" class="hover:text-[#0077c2]">Product</a></li>
+                <!-- <li><a href="#new-products" class="hover:text-[#0077c2]">Product</a></li> -->
+                <li class="w-full text-center">
+                    <button id="mobile-product-btn"
+                        class="w-full flex justify-center items-center gap-2 py-2 hover:text-[#0077c2] transition">
+                        Products
+                        <svg class="w-4 h-4 ml-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M5.23 7.21a.75.75 0 011.06.02L10 11.17l3.71-3.94a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                                clip-rule="evenodd" />
+                        </svg>
+                    </button>
+
+                    <!-- hidden submenu -->
+                    <ul id="mobile-product-menu" class="hidden flex-col space-y-1 mt-1">
+                        <li><a href="./basicchem.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Basic
+                                Raw Materials</a></li>
+                        <li><a href="ro-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">RO Water Treatment</a></li>
+                        <li><a href="boiler-water-treatment.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Boiler Water Treatment</a>
+                        </li>
+                        <li><a href="cooling-tower.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Cooling Tower Treatment</a>
+                        </li>
+                        <li><a href="waste-water.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Waste
+                                Water Chemicals</a></li>
+                        <li><a href="desalination.html"
+                                class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Desalination Chemicals</a>
+                        </li>
+                        <li><a href="petro-field.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Petro
+                                Field Refinery</a></li>
+                        <li><a href="specialty.html" class="block px-4 py-2 hover:bg-[#0077c2] hover:text-white">Other
+                                Specialty Chemicals</a></li>
+                    </ul>
+                </li>
+
+
                 <li><a href="#programs" class="hover:text-[#0077c2]">Programs</a></li>
                 <li><a href="#faq" class="hover:text-[#0077c2]">FAQ</a></li>
                 <li><a href="#contact" class="hover:text-[#0077c2]">Contact</a></li>
@@ -1269,17 +1310,20 @@
         (function () {
             const productBtn = document.getElementById('product-btn');
             const productMenu = document.getElementById('product-menu');
+            // Fix for mobile: show menu when nav is opened
+            if (window.innerWidth <= 768) {
+                productMenu.classList.add('hidden');
+            }
 
             if (!productBtn || !productMenu) return;
 
-            // utility to open / close
             function openMenu() {
-                productMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+                productMenu.classList.remove('opacity-0', 'scale-95', 'pointer-events-none', 'hidden');
                 productMenu.classList.add('opacity-100', 'scale-100');
                 productBtn.setAttribute('aria-expanded', 'true');
             }
             function closeMenu() {
-                productMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+                productMenu.classList.add('opacity-0', 'scale-95', 'pointer-events-none', 'hidden');
                 productMenu.classList.remove('opacity-100', 'scale-100');
                 productBtn.setAttribute('aria-expanded', 'false');
             }
@@ -1340,6 +1384,13 @@
             }
             */
         })();
+
+    </script>
+    <script>
+        document.getElementById('mobile-product-btn').addEventListener('click', () => {
+            const menu = document.getElementById('mobile-product-menu');
+            menu.classList.toggle('hidden');
+        });
     </script>
 </body>
 
