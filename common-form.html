@@ -111,7 +111,7 @@
             mobileMenu.classList.toggle('hidden');
         });
     </script>
-
+    <!-- 
     <section class="max-w-3xl mx-auto bg-white rounded-2xl mt-32 mb-10 p-8 shadow-lg border border-gray-100">
         <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Get in Touch</h2>
 
@@ -139,7 +139,40 @@
                 Send Message
             </button>
         </form>
+    </section> -->
+    <section class="max-w-3xl mx-auto bg-white rounded-2xl mt-32 mb-10 p-8 shadow-lg border border-gray-100">
+        <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Get in Touch</h2>
+
+        <!-- ✅ Success message (hidden by default) -->
+        <div id="formMessage" class="hidden text-center mb-4 py-3 px-4 rounded-lg font-medium"></div>
+
+        <!-- ✅ Formspree contact form -->
+        <form id="contactForm" action="https://formspree.io/f/mvgveerv" method="POST" class="space-y-4">
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <input type="text" name="name" placeholder="Your Name" required
+                    class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+                <input type="email" name="email" placeholder="Your Email" required
+                    class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <input type="text" name="phone" placeholder="Phone Number"
+                    class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+                <input type="text" name="subject" placeholder="Subject (e.g. Get Quote)"
+                    class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
+            </div>
+
+            <textarea name="message" rows="5" placeholder="Write your message..." required
+                class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400"></textarea>
+
+            <button type="submit"
+                class="w-full bg-green-600 hover:bg-green-700 text-white font-semibold py-3 rounded-lg transition">
+                Send Message
+            </button>
+        </form>
     </section>
+
 
     <!-- ================= FOOTER ================= -->
     <footer class="bg-black text-gray-300 py-14 px-6">
@@ -212,6 +245,40 @@
         </div>
 
     </footer>
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    formMessage.textContent = '✅ Message sent successfully!';
+                    formMessage.className = 'text-green-600 bg-green-100 border border-green-300 rounded-lg p-3 text-center mb-4';
+                    formMessage.classList.remove('hidden');
+                    contactForm.reset();
+
+                    setTimeout(() => formMessage.classList.add('hidden'), 4000);
+                } else {
+                    throw new Error();
+                }
+            } catch (error) {
+                formMessage.textContent = '❌ Something went wrong. Please try again.';
+                formMessage.className = 'text-red-600 bg-red-100 border border-red-300 rounded-lg p-3 text-center mb-4';
+                formMessage.classList.remove('hidden');
+                setTimeout(() => formMessage.classList.add('hidden'), 4000);
+            }
+        });
+    </script>
 
 </body>
 

@@ -982,7 +982,7 @@
                         <span class="flex items-center gap-1">👁️ <span>3000</span></span>
                         <span class="flex items-center gap-1">❤️ <span>1500</span></span>
                     </div>
-                    <h3 class="font-semibold text-gray-800 mb-1">ASR OPTITREAT DT 288
+                    <h3 class="font-semibold text-gray-800 mb-1">ASR OPTITREAT DT 88
                     </h3>
                     <p class="text-gray-500 text-sm mb-3">pH controller for Cooling Tower Water.
                     </p>
@@ -1337,7 +1337,15 @@
                 </div>
 
                 <!-- Contact Form -->
-                <form action="contact.php" method="POST" class="bg-white p-8 rounded-2xl shadow space-y-4">
+                <form id="contactForm" action="https://formspree.io/f/mvgveerv" method="POST"
+                    class="bg-white p-8 rounded-2xl shadow space-y-4 relative">
+
+                    <!-- Success message placeholder -->
+                    <div id="successMessage"
+                        class="hidden absolute -top-10 left-0 right-0 bg-green-500 text-white text-center py-2 rounded-lg">
+                        ✅ Message successfully sent!
+                    </div>
+
                     <div class="grid md:grid-cols-2 gap-4">
                         <input type="text" name="name" placeholder="Your Name" required
                             class="border rounded-lg p-3 w-full focus:ring-2 focus:ring-green-400">
@@ -1635,19 +1643,7 @@
                 if (e.key === 'Escape') closeMenu();
             });
 
-            // Ensure the menu is not clipped by parent overflow; if parent has overflow hidden,
-            // fallback: move menu to body (uncomment the block below if you still face clipping).
-            /*
-            if (productMenu.getBoundingClientRect().bottom > window.innerHeight ||
-                productMenu.getBoundingClientRect().right > window.innerWidth) {
-              document.body.appendChild(productMenu);
-              const rect = productBtn.getBoundingClientRect();
-              productMenu.style.position = 'absolute';
-              productMenu.style.left = rect.left + 'px';
-              productMenu.style.top = rect.bottom + 'px';
-              productMenu.style.zIndex = '9999';
-            }
-            */
+
         })();
 
     </script>
@@ -1655,6 +1651,37 @@
         document.getElementById('mobile-product-btn').addEventListener('click', () => {
             const menu = document.getElementById('mobile-product-menu');
             menu.classList.toggle('hidden');
+        });
+    </script>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const form = e.target;
+            const successMsg = document.getElementById("successMessage");
+
+            const formData = new FormData(form);
+
+            try {
+                const response = await fetch(form.action, {
+                    method: form.method,
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    successMsg.classList.remove("hidden");
+                    form.reset();
+
+                    // Hide success message after 3 seconds
+                    setTimeout(() => {
+                        successMsg.classList.add("hidden");
+                    }, 3000);
+                } else {
+                    alert("Something went wrong! Please try again.");
+                }
+            } catch (error) {
+                alert("Network error. Please check your connection.");
+            }
         });
     </script>
 </body>
