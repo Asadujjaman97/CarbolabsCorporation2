@@ -29,23 +29,3 @@
     z-index: 30 !important;
     pointer-events: auto !important;
 }
-
-@media (max-width: 768px) {
-
-    .card,
-    .service-card {
-        margin-bottom: 1.5rem;
-        /* gives breathing room */
-    }
-
-    .card a,
-    .service-card a {
-        margin-bottom: 0.5rem;
-        display: inline-block;
-    }
-
-    body {
-        padding-bottom: 20px;
-        /* ensures safe area on all phones */
-    }
-}
